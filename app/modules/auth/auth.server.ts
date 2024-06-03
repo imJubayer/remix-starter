@@ -39,7 +39,7 @@ authenticator.use(
     async ({ email }) => {
       let user = await prisma.user.findUnique({
         where: {
-          username: 'admin',
+          email,
         },
         include: {
           image: { select: { id: true } },
